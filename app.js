@@ -19,15 +19,13 @@
         }
         function addImage(data) {
             let htmlContent = '';
-            const firstImage = data.results[0];
-
-            if (firstImage) {
-                htmlContent = `<figure>
-                    <img src="${firstImage.urls.small}" alt="${searchedForText}">
-                    <figcaption>${searchedForText} by ${firstImage.user.name}</figcaption>
-                </figure>`;
-            } else {
-                htmlContent = 'Unfortunately, no image was returned for your search.';
+            //  const firstImage = data.results[0];
+            const Image = data.results;
+            for (const image of Image) {
+                responseContainer.insertAdjacentHTML('afterbegin', `<figure>
+                <img src="${image.urls.small}" alt="${searchedForText}">
+                <figcaption>${searchedForText} by ${image.user.name} twitter ${image.user.twitter_username}</figcaption>
+            </figure>`);
             }
 
             responseContainer.insertAdjacentHTML('afterbegin', htmlContent);
