@@ -31,7 +31,7 @@
             responseContainer.insertAdjacentHTML('afterbegin', htmlContent);
         }
 
-        fetch(`http://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchedForText}&api-key=453e3d675dcd4f6e81f71555bdaf990c`)
+        fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${searchedForText}&api-key=453e3d675dcd4f6e81f71555bdaf990c`)
             .then(response => response.json()).then(addarticle).catch(err => requestError(err, 'image'));
         function addarticle(data) {
             let htmlContent = '';
